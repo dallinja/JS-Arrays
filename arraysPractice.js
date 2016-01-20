@@ -5,7 +5,9 @@ var arr = [10,20,30];
 //Create a function named 'first' that is given 'arr' as the argument and  returns the first item in the given array.
 
   //Code Here
-
+  function first(arr) {
+    return arr[0];
+  }
 
 //Next problem
 
@@ -16,7 +18,9 @@ var arr = [40,50,60];
 
 
   //Code Here
-
+  function last(arr) {
+    return arr[2];
+  }
 
 //Next Problem
 
@@ -25,7 +29,11 @@ var family = ['Tyler', 'Jordyn', 'Ryan', 'Chelsey', 'Ireland'];
 //Create a function named 'looper' that is given family as it's only argument, loops through the given array, and alerts every item in the array.
 
   //Code Here
-
+  function looper(family) {
+    for (var i = 0; i < family.length; i++) {
+      alert(family[i]);
+    };
+  }
 
 //Next problem
 
@@ -35,7 +43,11 @@ var letters = ['A', 'B', 'C', 'D', 'E'];
 //Write a function called reversedLooper that is given letters as it's only argument and loops through the given array backwards alerting every item in the array starting at the end.
 
   //Code Here
-
+  function reversedLooper(letters) {
+    for (var i = letters.length - 1; i >= 0; i--) {
+      alert(letters[i]);
+    };
+  }
 
 //Next Problem
 
@@ -44,10 +56,16 @@ var nums = [1,2,3,6,22,98,45,23,22,12];
 //Write a function named evenFinder that is given nums as it's only argument and removes all values that aren't even from the given array.
 
   //Code Here
-
+  function evenFinder (nums) {
+    for (var i = nums.length - 1; i >= 0; i--) {
+      if (nums[i]%2 !== 0) {
+        nums.splice(i, 1);
+      }
+    };
+    return nums;
+  }
 
 //Next problem
-
 
 var nums = [1,2,34,54,55,34,32,11,19,17,54,66,13];
 var evens = [];
@@ -58,6 +76,16 @@ var odds = [];
 
 
   //Code Here
+  function divider (nums) {
+    for (var i = 0; i < nums.length; i++) {
+      if (nums[i]%2 === 0) {
+        evens.push(nums[i]);
+      } else {
+        odds.push(nums[i]);
+      }
+    };
+    return [evens, odds];
+  }
 
 
 //Next Problem
@@ -70,7 +98,16 @@ var numbers = [0,3,4,5,6,7,9,14,17,24,25,26,29,30];
 //Above you're given a function that will return a random number between 0 and 30, and an array full of numbers. Your job is to write a function named finder that will get a random number, then loop through the array to see if that random number is in the array. If it is, return true, if it's not, return false
 
   //Code Here
-
+  function finder(arr) {
+    var num = getRandomArbitrary();
+    var there = false;
+    for (var i = 0; i < arr.length; i++) {
+      if (arr[i] === num) {
+        there = true;
+      } 
+    };
+    return there;
+  }
 
 //Next problem
 
@@ -80,7 +117,9 @@ var str = 'this is my sentence';
 //Write a function called reverse that takes a given str as it's only argument and returns that string after it's been reversed
 
   //Code Here
-
+  function reverse(str) {
+    return str.split('').reverse().join('');
+  }
 
 //Next Problem
 
@@ -103,7 +142,17 @@ var myGroceryList = ['chips', 'pizza', 'hotpockets', 'MtnDew', 'corndogs'];
 
 //removeItem(myGroceryList, 'chips') --> ['pizza', 'hotpockets', 'MtnDew', 'corndogs'];
 //addItem(myGroceryList, 'Jerky') --> ['pizza', 'hotpockets', 'MtnDew', 'corndogs', 'Jerky'];
-
+function removeItem(myGroceryList, item) {
+  for (var i = 0; i < myGroceryList.length; i++) {
+    if (myGroceryList[i] === item) {
+      myGroceryList.splice(i, 1);
+    }
+  };
+  return myGroceryList;
+}
+function addItem(myGroceryList, item) {
+  return myGroceryList.push(item);
+}
 
 
 //Next Problem
@@ -113,7 +162,13 @@ var myGroceryList = ['chips', 'pizza', 'hotpockets', 'MtnDew', 'corndogs'];
 //Write a function called maker that creates an array, fills that array with numbers from 1 to 215, then returns the array.
 
   //Code Here
-
+function maker() {
+  var arr = []
+  for (var i = 0; i < 215; i++) {
+    arr.push(i+1);
+  };
+  return arr;
+}
 
 
 //Next Problem
@@ -124,7 +179,13 @@ var numbers = [5, '9', 16, 19, '25', '34', 48];
 //array after adding ten to each item in numbers. *Verify your answer is correct. --> [15, 19, 26, 29, 35, 44, 58]
 
   //Code Here
-
+  function addTen(numbers) {
+    var arr = [];
+    for (var i = 0; i < numbers.length; i++) {
+      arr.push(parseInt(numbers[i])+10);
+    };
+    return arr;
+  }
 
 
 //Next Problem
@@ -145,7 +206,13 @@ for(var i = 0; i < num2; i++){
 //Write a function called 'longer' that is given arr1 and arr2 as it's only arguments. Return the array which is longest.
 
   //Code Here
-
+  function longer(arr1, arr2) {
+    if (arr1.length > arr2.length) {
+      return arr1;
+    } else {
+      return arr2;
+    }
+  }
 
 /*As a continuation of the previous problem, write another function called 'both'.
   Your 'both' function will be given two arguments, arr1 and arr2 (from the previous example)
@@ -153,7 +220,17 @@ for(var i = 0; i < num2; i++){
 */
 
   //Code Here
-  
+  function both (arr1, arr2) {
+    var arr = [];
+    for (i in arr1) {
+      for (j in arr2) {
+        if (arr1[i] === arr2[j]) {
+          arr.push(arr1[i]);
+        }
+      };
+    };
+    return arr;
+  }
   
   
 
@@ -193,11 +270,17 @@ array with those four objects. After that console.log the length of the Array an
 sure that it's equal to 4. */
 
   //Code Here
-
+  devMountainEmployees.push(tyler, cahlan, ryan, colt);
+  console.log(devMountainEmployees.length);
 /*Now let's say Cahlan has a mental breakdown and has to take a leave of absence to 'find himself'.
 Loop through your devMountainEmployees until you find cahlan, then remove him from the array.*/
 
   //Code Here
+for (each in devMountainEmployees) {
+      if (devMountainEmployees[each] === cahlan) {
+        devMountainEmployees.splice(each, 1);
+      }
+    };
 
 
 
@@ -240,7 +323,7 @@ of Data is to have an Array full of objects. */
 //Create an empty array called users.
 
   //Code Here
-
+var users = [];
 /*Now add three user objects to your users array. Each user object should contain the
 following properties. name, email, password, username.*/
 
@@ -251,9 +334,21 @@ var user1 = {
     password: 'iLoveJavaScript',
     username: 'infiniateLoop'
 };
+var user2 = {
+    name: 'Dallin Anderson',
+    email: 'dallin@gmail.com',
+    password: 'dalpass',
+    username: 'dallin'
+};
+var user3 = {
+    name: 'Brad Scott',
+    email: 'brad@ gmail.com',
+    password: 'bradpass',
+    username: 'brad'
+};
 
 //Your Code Here
-
+users.push(user1, user2, user3);
 /*Now you have a very common data structure. Twitter is a good use case.
 It's easy to imagine that your followers list on Twitter is an Array full or objects
 and those objects contain properties about the specific person you follow.*/
@@ -263,6 +358,10 @@ objects until you find Tyler's account (use tylermcginnis33@gmail.com to find hi
 Once you find the particular index he's located in, delete him from the array.*/
 
   //Code Here
-
+for (each in users) {
+  if (users[each].email === 'tylermcginnis33@gmail.com') {
+    users.splice(each, 1);
+  }
+};
 //The activity we just did is very much how data works in 'the real world'.
 
